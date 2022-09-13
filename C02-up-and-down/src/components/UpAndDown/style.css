@@ -1,0 +1,22 @@
+.container-upanddown {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 40%;
+    margin: 0 auto;
+    padding: 20px;
+    border: solid 1px rgb(172, 172, 172);
+}
+.container-upanddown>p {
+    width: 100%;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.btn-inc, .btn-dec {
+    display: block;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+}
