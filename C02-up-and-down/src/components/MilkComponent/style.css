@@ -1,0 +1,23 @@
+.container-product {
+    display: flex;
+    width: 70%;
+    margin: 20px auto;
+    border: 1px gray solid;
+}
+.product-info {
+    margin: 20px;
+}
+h1, .product-info>div {
+    margin: 15px 0;
+}
+span {
+    font-size: 30px;
+    font-weight: 600;
+}
+button {
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: green;
+    margin-left: 200px;
+}
