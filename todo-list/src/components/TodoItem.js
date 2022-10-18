@@ -23,7 +23,7 @@ class TodoItem extends Component {
 				<span className="todo-item-toggle" onClick={() => this.handleToggleStatus()}>
 					<img src="assets/complete-tick.svg" alt="tick" />
 				</span>
-				<div className="todo-item-content completed">{this.props.todo?.title}</div>
+				<div className="todo-item-content completed">{this.props.todo.title}</div>
 				<div className="todo-item-options">
 					<span className="icon-btn" onClick={() => this.handleEditClick()}>
 						<img src="assets/edit.svg" alt="edit" />
