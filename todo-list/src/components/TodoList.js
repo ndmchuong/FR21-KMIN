@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
-import { todos } from '../data/data';
 import TodoItem from './TodoItem';
 
 
 
 class TodoList extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			
+		}
+	}
 	render() {
 		return (
 			<div className="todo-list-container">
-				{todos.map((todo) => (
+				{this.props.todos.map((todo) => (
 					<TodoItem todo={todo} key={todo.id} />
 				))}
 			</div>

@@ -1,26 +1,38 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 
-const TodoForm = () => {
-	const [job, setJob] = useState('');
-	const [jobs, setJobs] = useState([]);
-	const handleChange = (event) => {
-		const value = event.target.value;
-		setJob(value);
+
+class TodoForm extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			title: ''
+		}
+		this.handleChange = (event) => {
+			const value = event.target.value;
+			this.setState({
+				title: value
+			})
+		}
+		this.handleSubmit = (event) => {
+			event.preventDefault();
+			const newTask = this.state.title;
+			this.props.addTodo(newTask);
+			this.setState({
+				title: ''
+			})
+		}
 	}
-	const handleSubmit = (event) => {
-		setJobs(pre => [...pre, job]);
-		event.preventDefault();
-		console.log(jobs);
+	render() {
+		return (
+			<div className="todo-form-container">
+				<form onSubmit={this.handleSubmit}>
+					<input type="text" value={this.state.title} onChange={this.handleChange} placeholder="What need to be done?"/>
+				</form>
+			</div>
+		);
 	}
-	return (
-		<div className="todo-form-container">
-			<form onSubmit={handleSubmit}>
-				<input type="text" name='job' value={job} onChange={handleChange} placeholder="What need to be done?" />
-				<input type='submit'></input>
-			</form>
-		</div>
-	);
 }
+
 export default TodoForm;
 
 
