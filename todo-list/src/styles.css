@@ -74,6 +74,7 @@ body {
 .todo-item-container {
 	padding: 16px;
 	display: flex;
+	position: relative;
 	align-items: center;
 	justify-content: center;
 }
@@ -99,13 +100,14 @@ body {
 
 .todo-item-content {
 	font-size: 24px;
-	font-weight: 300;
+	font-weight: 600;
 	line-height: 1.25;
 	padding: 0 20px;
 	flex: 1;
 }
 
 .todo-item-content.completed {
+	font-weight: 300;
 	color: #d9d9d9;
 	text-decoration: line-through;
 }

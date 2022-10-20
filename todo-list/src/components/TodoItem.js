@@ -3,10 +3,15 @@ import React, { Component } from 'react';
 class TodoItem extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			isComplete: this.props.isComplete
+		}
 	}
 
 	handleToggleStatus() {
-		console.log('handleToggleStatus');
+		this.setState(prevState => ({
+			isComplete: !prevState.isComplete
+		}));
 	}
 
 	handleEditClick() {
@@ -18,12 +23,21 @@ class TodoItem extends Component {
 	}
 
 	render() {
+		const isComplete = this.state.isComplete;
 		return (
 			<div className="todo-item-container">
 				<span className="todo-item-toggle" onClick={() => this.handleToggleStatus()}>
-					<img src="assets/complete-tick.svg" alt="tick" />
+					{ isComplete ? (
+						<img src="assets/complete-tick.svg" alt="tick" />
+					) : (
+						<img src='assets/active-tick.svg' alt='tick'/>
+					)}
 				</span>
-				<div className="todo-item-content completed">{this.props.todo.title}</div>
+				{ isComplete ? (
+					<div className="todo-item-content completed">{this.props.todo.title}</div>
+				) : (
+					<div className="todo-item-content">{this.props.todo.title}</div>
+				)}
 				<div className="todo-item-options">
 					<span className="icon-btn" onClick={() => this.handleEditClick()}>
 						<img src="assets/edit.svg" alt="edit" />

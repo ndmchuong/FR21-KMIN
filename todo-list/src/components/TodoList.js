@@ -14,7 +14,7 @@ class TodoList extends Component {
 		return (
 			<div className="todo-list-container">
 				{this.props.todos.map((todo) => (
-					<TodoItem todo={todo} key={todo.id} />
+					<TodoItem todo={todo} key={todo.id} isComplete={todo.isCompleted}/>
 				))}
 			</div>
 		);
