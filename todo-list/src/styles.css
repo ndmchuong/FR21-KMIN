@@ -99,19 +99,44 @@ body {
 }
 
 .todo-item-content {
+	position: relative;
+	height: 50px;
 	font-size: 24px;
 	font-weight: 600;
-	line-height: 1.25;
+	line-height: 50px;
 	padding: 0 20px;
 	flex: 1;
 }
 
+.todo-item-content .input-content {
+	display: block;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 90%;
+    height: 100%;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 50px;
+    padding: 0 20px;
+	border-radius: 10px;
+    flex: 1 1;
+}
 .todo-item-content.completed {
 	font-weight: 300;
 	color: #d9d9d9;
-	text-decoration: line-through;
 }
-
+.todo-item-content .todo-item-status {
+	font-size: 20px;
+	border: solid black 1px;
+	border-radius: 5px;
+	padding: 3px;
+}
+.completed .todo-item-status {
+	border: #173451 solid 1px;
+	background-color: #173451;
+	text-decoration: none;
+}
 .todo-item-options {
 	flex: 0;
 	display: flex;

@@ -4,46 +4,68 @@ class TodoItem extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isComplete: this.props.isComplete
+			isCompleted: this.props.isCompleted,
+			titleNew: '',
+			displayInputEdit: false
 		}
+		this.handleChange = (event) => {
+			const value = event.target.value;
+			this.setState({
+				titleNew: value
+			})
+		}
+		this.handleSubmit = (event) => {
+			event.preventDefault();
+			const id = this.props.todo.id;
+			this.props.changeTitle(this.state.titleNew, id);
+			this.setState({
+				displayInputEdit: false
+			})
+		}
+		this.handleToggleStatus = (id) => {
+			this.props.toggleStatus(id);
+		}
+		this.handleDelete = (id) => {
+			this.props.deleteTodo(id);
+		} 
 	}
-
-	handleToggleStatus() {
-		this.setState(prevState => ({
-			isComplete: !prevState.isComplete
-		}));
-	}
-
 	handleEditClick() {
-		console.log('handleEditClick');
+		this.setState(prevState => ({
+			displayInputEdit: !prevState.displayInputEdit
+		}))
 	}
-
-	handleDeleteClick() {
-		console.log('handleDeleteClick');
-	}
-
+	
 	render() {
-		const isComplete = this.state.isComplete;
+		const isCompleted = this.props.isCompleted;
+		const displayInputEdit = this.state.displayInputEdit;
+		
 		return (
 			<div className="todo-item-container">
-				<span className="todo-item-toggle" onClick={() => this.handleToggleStatus()}>
-					{ isComplete ? (
+				<span className="todo-item-toggle" onClick={() => this.handleToggleStatus(this.props.todo.id)}>
+					{ isCompleted ? (
 						<img src="assets/complete-tick.svg" alt="tick" />
 					) : (
 						<img src='assets/active-tick.svg' alt='tick'/>
 					)}
 				</span>
-				{ isComplete ? (
-					<div className="todo-item-content completed">{this.props.todo.title}</div>
+				{ isCompleted ? (
+					<div className="todo-item-content completed">{this.props.title}  : <span 			className='todo-item-status'>Completed</span>
+					</div>
 				) : (
-					<div className="todo-item-content">{this.props.todo.title}</div>
+					<div className="todo-item-content">{this.props.title}  : <span className='todo-item-status'>Active</span> 
+						{ displayInputEdit ? (
+							<form onSubmit={this.handleSubmit}>
+								<input className='input-content' type="text" value={this.state.titleNew} onChange={this.handleChange}/>
+							</form>
+						) : (null)}
+					</div>
 				)}
 				<div className="todo-item-options">
 					<span className="icon-btn" onClick={() => this.handleEditClick()}>
 						<img src="assets/edit.svg" alt="edit" />
 					</span>
-					<span className="icon-btn" onClick={() => this.handleDeleteClick()}>
-						<img src="assets/delete.svg" alt="close" />
+					<span className="icon-btn" onClick={() => this.handleDelete(this.props.todo.id)}>
+						<img src="assets/delete.svg" alt="close"/>
 					</span>
 				</div>
 			</div>
@@ -52,3 +74,4 @@ class TodoItem extends Component {
 }
 
 export default TodoItem;
+
