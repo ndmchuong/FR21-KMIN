@@ -1,0 +1,61 @@
+@import "./variables";
+
+@mixin dpFlex($align-item, $justify-content) {
+    display: flex;
+    align-items: $align-item;
+    justify-content: $justify-content;
+}
+@mixin logo {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 90px;
+    text-align: center;
+    color: $--green-100;
+}
+@mixin position-service-item {
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+@mixin position-container-service-item($grid-column-start, $grid-column-end, $grid-row-start, $grid-row-end) {
+    grid-column-start: $grid-column-start;
+    grid-column-end: $grid-column-end;
+    grid-row-start: $grid-row-start;
+    grid-row-end: $grid-row-end;
+    position: relative;
+}
+@mixin line-img-content($left, $right, $width) {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: $left;
+    right: $right;
+    width: $width;
+    height: 3px;
+    background: $--green-100;
+}
+@mixin Responsive($canvas) {
+    @if ($canvas == $--desktop) {
+        @media only screen and (max-width: $--desktop) {
+            @content;
+        }
+    }
+    @else if ($canvas == $--tablet) {
+        @media only screen and (max-width: $--tablet) {
+            @content;
+        }
+    }
+    @else if ($canvas == $--tablet-m) {
+        @media only screen and (max-width: $--tablet-m) {
+            @content;
+        }
+    }
+    @else if ($canvas == $--mobile) {
+        @media only screen and (max-width: $--mobile) {
+            @content;
+        }
+    }
+}

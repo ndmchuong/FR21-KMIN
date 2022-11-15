@@ -1,0 +1,88 @@
+@import "../mixin";
+
+footer {
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    grid-template-rows: auto 100px;
+    background-color: $--gray-200;
+    color: $--white;
+    padding: 50px 10px;
+    @include Responsive($--tablet) {
+        grid-template-columns: 0.2fr 1.8fr;
+    }
+    @include Responsive($--tablet-m) {
+        display: block;
+        padding: 0 10px 20px;
+    }
+    .footer-logo {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        @include dpFlex(center, center);
+        margin: 0 30px;
+        border-bottom: double 2px $--white;
+        @include Responsive($--tablet-m) {
+            margin: 0 0 20px 0;
+        }
+        span {
+            @include logo;
+            @include Responsive($--tablet) {
+                font-size: 30px;
+            }
+        }
+    }
+    .footer-links {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        @include dpFlex(top, space-between);
+        @include Responsive($--tablet-m) {
+            flex-wrap: wrap;
+        }
+        .list-links {
+            @include Responsive($--tablet) {
+                padding: 0 5px;
+            }
+            @include Responsive($--tablet-m) {
+                min-width: 160px;
+                padding: 10px 5px;
+            }
+            .list-links-title {
+                font-weight: 500;
+                letter-spacing: 1px;
+                margin-bottom: 15px;
+            }
+            .link-item {
+                padding: 10px 0;
+            }
+        }
+    }
+    .footer-social-link {
+        grid-column: 1/2;
+        grid-row: 2/3;
+        @include dpFlex(center, center);
+        @include Responsive($--tablet-m) {
+            justify-content: right;
+            margin: 20px 0;
+        }
+        .social-link {
+            width: 30px;
+            margin: 0 15px;
+        }
+    }
+    .footer-license {
+        grid-column: 2/3;
+        grid-row: 2/3;
+        @include dpFlex(center, right);
+        @include Responsive($--mobile) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .license-link {
+            margin: 0 10px;
+            @include Responsive($--mobile) {
+                min-width: 150px;
+                text-align: center;
+                margin: 10px 0;
+            }
+        }
+    }
+}

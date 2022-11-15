@@ -1,0 +1,154 @@
+@import "../mixin";
+
+.services {
+    margin: 150px 20px;
+    height: 56vw;
+    @include Responsive($--tablet) {
+        margin: 100px 0;
+        height: 100vw;
+    }
+    .services-title-description {
+        @include dpFlex(center, left);
+        max-width: 1640px;
+        margin: 0 auto;
+    }
+    .services-title, .services-description {
+        width: calc(100% / 3);
+    }
+    .services-title {
+        height: 140px;
+        line-height: 140px;
+        padding-left: 30px;
+        border-left: solid $--green-100 25px;
+        @include Responsive($--tablet) {
+            padding: 0;
+            width: 40%;
+            height: auto;
+            line-height: 70px;
+        }
+    }
+    .services-description {
+        @include Responsive($--tablet) {
+            width: 60%;
+        }
+    }
+    .container-our-services {
+        display: grid;
+        max-width: 1640px;
+        height: calc(100% - 140px);
+        max-height: 1000px;
+        margin: 100px auto;
+        grid-template-columns: 0.8fr 0.8fr 1.4fr;
+        grid-template-rows: 1fr 1fr;
+        column-gap: 100px;
+        @include Responsive($--tablet) {
+            gap: 30px;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            max-height: auto;
+        }
+        .container-service-item-img1 {
+            @include position-container-service-item(1, 2, 1, 2);
+            background-color: $--white-200;
+            
+            .service-item-img {
+                @include position-service-item;
+                @include Responsive($--tablet) {
+                    width: 40%;
+                }
+            }
+        }
+        .container-service-item-content1 {
+            @include position-container-service-item(2, 3,1, 2);
+            .service-item-content {
+                @include position-service-item;
+            }
+            .service-item-content>.sup-title {
+                position: relative;
+
+            }
+            // .service-item-content>.sup-title::after {
+            //     @include line-img-content(110px, auto, 30%);
+            // }
+            // .service-item-content>.sup-title::before {
+            //     @include line-img-content(-135px, auto, 50%);
+            // }
+        }
+        .container-service-item-img2 {
+            @include position-container-service-item(2, 3, 2, 3);
+            background-color: $--white-200;
+            .service-item-img {
+                @include position-service-item;
+                @include Responsive($--tablet) {
+                    width: 40%;
+                }
+            }
+        }
+        .container-service-item-content2 {
+            @include position-container-service-item(1, 2, 2, 3);
+            .service-item-content {
+                @include position-service-item;
+                text-align: right;
+            }
+            .service-item-content>.sup-title {
+                position: relative;
+
+            }
+            // .service-item-content>.sup-title::after {
+            //     @include line-img-content(auto, auto, 30%);
+            // }
+            // .service-item-content>.sup-title::before {
+            //     @include line-img-content(auto, auto, 50%);
+            // }
+        }
+        .container-service-item-img3 {
+            @include position-container-service-item(3, 4, 1, 2);
+            @include Responsive($--tablet) {
+                @include position-container-service-item(1, 2, 3, 4);
+            }
+            .service-item-img {
+                width: 70%;
+                position: absolute;
+                left: 50%;
+                bottom: 0;
+                transform: translate(-50%, 0);
+                @include Responsive($--tablet) {
+                    width: 40%;
+                    bottom: 50%;
+                    transform: translate(-50%, 50%);
+                }
+            }
+        }
+        .container-service-item-content3 {
+            @include position-container-service-item(3, 4, 2, 3);
+            @include Responsive($--tablet) {
+                @include position-container-service-item(2, 2, 3, 4);
+            }
+            .service-item-content {
+                @include position-service-item;
+                width: 50%;
+                text-align: center;
+                @include Responsive($--tablet) {
+                    width: 100%;
+                }
+            }
+        }
+        .container-service-item-content3, .container-service-item-img3 {
+            background-color: $--white-200;
+        }
+        .service-content-title, .sup-title {
+            line-height: 32px;
+            font-weight: 500;
+            color: $--dark-blue;
+        }
+        .service-content-desc {
+            color: $--gray-100;
+            line-height: 24px;
+        }
+        .container-service-item-content3 {
+            @include Responsive($--tablet) {
+                background-color: $--white;
+            }
+        }
+    }
+}
