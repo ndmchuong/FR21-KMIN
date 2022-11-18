@@ -1,0 +1,22 @@
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    background-color: black;
+    .nav-logo-link{
+        height: 100%;
+        width: 100px;
+    }
+    .nav-cart-link {
+       width: 100px;
+       background-color: white;
+       .cart-img {
+        width: 70px;
+        margin: 0 auto;
+       }
+       .cart-content {
+        text-align: center;
+       }
+    }
+}
