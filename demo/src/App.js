@@ -16,9 +16,9 @@ function App() {
     <div className="App">
       {/* <RenderArrayProducts/> */}
 
-      <RequirementForm/>
+      {/* <RequirementForm/> */}
 
-      {/* <nav>
+      <nav>
          <ul>
           <li>
             <Link to="/">Home</Link>
@@ -38,7 +38,7 @@ function App() {
        <Route path="/Contact/:id" element={<Contact/>}/>
        <Route path="/About" element={<About/>} />
        <Route path="*" element={<NotFound/>} />
-     </Routes> */}
+     </Routes>
     </div>
     /* <LogIn IsLogin = {true} note = "khi gia tri la true"/>
       <LogIn IsLogin = {false} note = "khi gia tri la false"/>
