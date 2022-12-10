@@ -1,0 +1,46 @@
+.hero {
+    .hero-titlebar {
+        width: 100%;
+        height: 90px;
+        .titlebar-title {
+            height: 65%;
+            color: $--yellow;
+            text-align: center;
+            background-color: $--gray-200;
+        }
+        .titlebar-description {
+            background-color: $--white;
+            height: 35%;
+            text-align: center;
+        }
+    }
+    .hero-banner {
+        width: 100%;
+        height: 50vw;
+        position: relative;
+        overflow: hidden;
+        .banner {
+            position: absolute;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        .btn-slide {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            width: 30px;
+            opacity: 0.4;
+            transform: translate(0, -50%);
+        }
+        .prev {
+            right: auto;
+            left: 10px;
+            transform: rotate(180deg);
+        }
+        .btn-slide:hover {
+            opacity: 1;
+        }
+    }
+    
+}
