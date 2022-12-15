@@ -60,10 +60,13 @@
                 color: $--green-200;
             }
             .btn-delete-food {
-                background-color: $--red;
-                color: white;
+                background-color: white;
+                border: none;
                 font-weight: 600;
                 padding: 10px;
+                img {
+                    width: 30px;
+                }
             }
         }
     }

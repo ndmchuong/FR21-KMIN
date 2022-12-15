@@ -5,6 +5,7 @@ import {
   getNumberCart,
   increaseQuantity,
 } from "../actions/actions";
+import iconDelete from "../assets/icon/x-icon-delete.jpg";
 
 export const CartFoodItem = (props) => {
   const dispatch = useDispatch();
@@ -41,11 +42,13 @@ export const CartFoodItem = (props) => {
           {`${Math.round(Number(item.price) * Number(item.quantity) * 100) / 100}`}$
         </span>
         <button className="btn-delete-food" onClick={() => {
-                const actionDelete = deleteFood(item);
-                dispatch(actionDelete);
-                const actionNumberCart = getNumberCart();
-                dispatch(actionNumberCart);
-              }}>DELETE</button>
+          const actionDelete = deleteFood(item);
+          dispatch(actionDelete);
+          const actionNumberCart = getNumberCart();
+          dispatch(actionNumberCart);
+          }}>
+            <img src={iconDelete} alt="" />
+          </button>
       </div>
     </>
   );

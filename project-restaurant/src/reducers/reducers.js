@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { ADD_CART, DECREASE_QUANTITY, DELETE_FOOD, GET_ALL_FOOD, GET_NUMBER_CART, INCREASE_QUANTITY } from "../actions/actions";
+import { ADD_CART, DECREASE_QUANTITY, DELETE_FOOD, GET_ALL_FOOD, GET_NUMBER_CART, INCREASE_QUANTITY, ORDER_FOOD } from "../actions/actions";
 
 const initFood = {
     numberCart: 0,
@@ -144,6 +144,17 @@ const cartFood = (state = initFood, action) => {
                 ...state,
                 quantityTotal: quantityTotalAfterDelete,
                 CartFood: cartFoodAfterDelete
+            }
+        case ORDER_FOOD: 
+            console.log(action.payload);
+            const newListQuantityTotal = state.listFood.map((item) =>({
+                id: item._id,
+                quantity: 0
+            }));
+            return{
+                ...state,
+                CartFood: [],
+                quantityTotal: newListQuantityTotal
             }
         default:
             return state

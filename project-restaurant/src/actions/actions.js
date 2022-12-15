@@ -7,9 +7,10 @@ export const DECREASE_QUANTITY = "DECREASE_QUANTITY";
 export const ADD_CART = "ADD_CART";
 export const UPDATE_CART = "UPDATE_CART";
 export const DELETE_FOOD = "DELETE_FOOD";
+export const ORDER_FOOD = "ORDER_FOOD";
 export const actFetchFoodRequest = () => {
     return async dispatch => {
-        const response = await axios.get('https://fe21-db.herokuapp.com/restaurant');
+        const response = await axios.get('https://fe21-db.vercel.app/restaurant');
         dispatch(GetAllFood(response.data))
     }       
 }
@@ -45,6 +46,12 @@ export const decreaseQuantity = (payload) => {
 export const deleteFood = (payload) => {
     return {
         type: 'DELETE_FOOD',
+        payload
+    }
+}
+export const orderFood = (payload) => {
+    return {
+        type: 'ORDER_FOOD',
         payload
     }
 }

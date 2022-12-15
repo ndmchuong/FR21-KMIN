@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom"
 import { CartFoodItem } from "./CartFoodItem"
 import arrow from "../assets/icon/arrow.png"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { getNumberCart, orderFood } from "../actions/actions"
 
 export const ShoppingCart = () => {
     const numberCart = useSelector(state => state.cartFood.numberCart);
     const cartFood = useSelector(state => state.cartFood.CartFood);
+    const dispatch = useDispatch();
     const handleCalcTotalBill = () => {
         let total = 0;
         const listPrice = cartFood.map((item) => {
@@ -36,7 +38,10 @@ export const ShoppingCart = () => {
                     <span>{` ${totalBill}$`}</span>
                 </h4>
                 <button onClick={() => {
-                    console.log(cartFood)
+                    const actionOrder = orderFood(cartFood);
+                    dispatch(actionOrder);
+                    const actionNumberCart = getNumberCart();
+                    dispatch(actionNumberCart);
                 }}>Order</button>
             </div>
         </section>
